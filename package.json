@@ -1,6 +1,6 @@
 {
     "name": "vite-plugin-cdn-import2",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Import packages from CDN for the vite plugin",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
