@@ -7,25 +7,29 @@ const modulesConfig = {
 	'react': {
 		var: 'React',
 		jsdeliver: {
-			path: 'umd/react.production.min.js'
+			path: 'umd/react.production.min.js',
+			devPath: 'umd/react.development.js'
 		}
 	},
 	'react-dom': {
 		var: 'ReactDOM',
 		jsdeliver: {
-			path: 'umd/react-dom.production.min.js'
+			path: 'umd/react-dom.production.min.js',
+			devPath: 'umd/react-dom.development.js',
 		}
 	},
 	'react-router-dom': {
 		var: 'ReactRouterDOM',
 		jsdeliver: {
-			path: 'umd/react-router-dom.min.js'
+			path: 'umd/react-router-dom.min.js',
+			devPath: '/umd/react-router-dom.js'
 		}
 	},
 	'antd': {
 		var: 'antd',
 		jsdeliver: {
 			path: 'dist/antd.min.js',
+			devPath: 'dist/antd.js',
 			css: 'dist/antd.min.css'
 		}
 	},
@@ -44,44 +48,51 @@ const modulesConfig = {
 	'vue': {
 		var: 'Vue',
 		jsdeliver: {
-			path: 'dist/vue.global.prod.js'
+			path: 'dist/vue.global.prod.js',
+			devPath: 'dist/vue.global.js',
 		}
 	},
 	'vue2': {
 		var: 'Vue',
 		jsdeliver: {
 			name: 'vue',
-			path: 'dist/vue.runtime.min.js'
+			path: 'dist/vue.runtime.min.js',
+			devPath: 'dist/vue.runtime.js',
 		}
 	},
 	'@vueuse/shared': {
 		var: 'VueUse',
 		jsdeliver: {
-			path: 'index.iife.min.js'
+			path: 'index.iife.min.js',
+			devPath: 'index.iife.js'
 		}
 	},
 	'@vueuse/core': {
 		var: 'VueUse',
 		jsdeliver: {
-			path: 'index.iife.min.js'
+			path: 'index.iife.min.js',
+			devPath: 'index.iife.js'
 		}
 	},
 	'moment': {
 		var: 'moment',
 		jsdeliver: {
-			path: 'moment.min.js'
+			path: 'min/moment.min.js',
+			devPath: 'dist/moment.js'
 		}
 	},
 	'eventemitter3': {
 		var: 'EventEmitter3',
 		jsdeliver: {
-			path: 'umd/eventemitter3.min.js'
+			path: 'umd/eventemitter3.min.js',
+			devPath: 'umd/eventemitter3.js'
 		}
 	},
 	'file-saver': {
-		var: 'window',
+		var: 'FileSaver',
 		jsdeliver: {
-			path: 'dist/FileSaver.min.js'
+			path: 'dist/FileSaver.min.js',
+			devPath: 'dist/FileSaver.js'
 		}
 	},
 	'browser-md5-file': {
@@ -99,27 +110,29 @@ const modulesConfig = {
 	'axios': {
 		var: 'axios',
 		jsdeliver: {
-			path: 'dist/axios.min.js'
+			path: 'dist/axios.min.js',
+			devPath: 'dist/axios.js'
 		}
 	},
-    'lodash': {
-        var: '_',
-        jsdeliver: {
-			path: 'lodash.min.js'
+	'lodash': {
+		var: '_',
+		jsdeliver: {
+			path: 'lodash.min.js',
+			devPath: 'lodash.js'
 		}
-    },
-    'crypto-js': {
-        var: 'crypto-js',
-        jsdeliver: {
-			path: 'crypto-js.min.js'
+	},
+	'crypto-js': {
+		var: 'CryptoJS',
+		jsdeliver: {
+			path: 'crypto-js.js'
 		}
-    },
-    'localforage': {
-        var: 'localforage',
-        jsdeliver: {
+	},
+	'localforage': {
+		var: 'localforage',
+		jsdeliver: {
 			path: 'dist/localforage.min.js'
 		}
-    },
+  },
 }
 
 export type ModuleName = keyof typeof modulesConfig

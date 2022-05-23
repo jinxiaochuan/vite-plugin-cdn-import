@@ -69,10 +69,11 @@ function PluginImportToCDN(options: Options): Plugin[] {
         }
         const version = getModuleVersion(v.name)
         let pathList: string[] = []
-        if (!Array.isArray(v.path)) {
-            pathList.push(v.path)
+        let path = prod ? v.path : (v.devPath || v.path)
+        if (!Array.isArray(path)) {
+            pathList.push(path)
         } else {
-            pathList = v.path
+            pathList = path
         }
 
         const data = {
@@ -120,7 +121,7 @@ function PluginImportToCDN(options: Options): Plugin[] {
 
     const plugins: Plugin[] = [
         {
-            name: 'vite-plugin-cdn-import',
+            name: 'vite-plugin-cdn-import2',
             config(_, { command }) {
                 const userConfig: UserConfig = {
                     build: {
