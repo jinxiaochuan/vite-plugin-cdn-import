@@ -8,5 +8,8 @@ export interface Module {
 
 export interface Options {
     modules: (Module | ((prodUrl: string) => Module))[]
+    prod?: boolean
     prodUrl?: string
+    devUrl?: string
+    forceCdn?: boolean
 }

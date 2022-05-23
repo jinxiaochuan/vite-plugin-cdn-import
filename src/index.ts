@@ -51,15 +51,19 @@ function PluginImportToCDN(options: Options): Plugin[] {
 
     const {
         modules = [],
+        prod = true,
         prodUrl = 'https://cdn.jsdelivr.net/npm/{name}@{version}/{path}',
+        devUrl = 'https://unpkg.com/{name}@{version}/{path}',
+        forceCdn = false,
     } = options
 
     let isBuild = false
 
     const data = modules.map((m) => {
         let v: Module
+        let url: string = prod ? prodUrl : devUrl
         if (typeof m === 'function') {
-            v = m(prodUrl)
+            v = m(url)
         } else {
             v = m
         }
@@ -80,7 +84,7 @@ function PluginImportToCDN(options: Options): Plugin[] {
             if (!version && !isFullPath(p)) {
                 throw new Error(`modules: ${data.name} package.json file does not exist`)
             }
-            return renderUrl(prodUrl, {
+            return renderUrl(url, {
                 ...data,
                 path: p
             })
@@ -91,7 +95,7 @@ function PluginImportToCDN(options: Options): Plugin[] {
             css = [css]
         }
 
-        const cssList = !Array.isArray(css) ? [] : css.map(c => renderUrl(prodUrl, {
+        const cssList = !Array.isArray(css) ? [] : css.map(c => renderUrl(url, {
             ...data,
             path: c
         }))
@@ -124,7 +128,7 @@ function PluginImportToCDN(options: Options): Plugin[] {
                     }
                 }
 
-                if (command === 'build') {
+                if (command === 'build' || forceCdn) {
                     isBuild = true
 
                     userConfig!.build!.rollupOptions = {
