@@ -153,7 +153,7 @@ function PluginImportToCDN(options: Options): Plugin[] {
                 const jsCode = !isBuild
                     ? ''
                     : data
-                        .map(p => p.pathList.map(url => `<script src="${url}"></script>`).join('\n'))
+                        .map(p => p.pathList.map(url => `<script crossorigin src="${url}"></script>`).join('\n'))
                         .join('\n')
 
                 return html.replace(
