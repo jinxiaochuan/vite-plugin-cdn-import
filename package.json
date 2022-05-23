@@ -1,6 +1,6 @@
 {
     "name": "vite-plugin-cdn-import2",
-    "version": "0.0.1-beta.0",
+    "version": "0.0.1",
     "description": "Import packages from CDN for the vite plugin",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
@@ -18,7 +18,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/mmf-fe/vite-plugin-cdn-import.git"
+        "url": "git+https://github.com/jinxiaochuan/vite-plugin-cdn-import.git"
     },
     "scripts": {
         "dev": "npm run build -- --watch",

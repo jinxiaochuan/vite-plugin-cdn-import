@@ -28,7 +28,7 @@ yarn add vite-plugin-cdn-import -D
 ```js
 // vite.config.js
 import reactRefresh from '@vitejs/plugin-react-refresh'
-import importToCDN from 'vite-plugin-cdn-import'
+import importToCDN from 'vite-plugin-cdn-import2'
 
 export default {
     plugins: [
@@ -38,11 +38,14 @@ export default {
                     name: 'react',
                     var: 'React',
                     path: `umd/react.production.min.js`,
+                    devPath: `umd/react.development.js`
+                    
                 },
                 {
                     name: 'react-dom',
                     var: 'ReactDOM',
                     path: `umd/react-dom.production.min.js`,
+                    devPath: 'umd/react-dom.development.js'
                 },
             ],
         }),
@@ -55,7 +58,7 @@ export default {
 ```js
 // vite.config.js
 import reactRefresh from '@vitejs/plugin-react-refresh'
-import importToCDN, { autoComplete } from 'vite-plugin-cdn-import'
+import importToCDN, { autoComplete } from 'vite-plugin-cdn-import2'
 
 export default {
     plugins: [
@@ -86,7 +89,7 @@ export default {
 
 ```js
 import vue from '@vitejs/plugin-vue'
-import importToCDN, { autoComplete } from 'vite-plugin-cdn-import'
+import importToCDN, { autoComplete } from 'vite-plugin-cdn-import2'
 
 export default {
     plugins: [
